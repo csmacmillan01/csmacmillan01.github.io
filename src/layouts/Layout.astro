@@ -1,6 +1,6 @@
 ---
 const { title } = Astro.props;
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, "");
 ---
 
 <!doctype html>
@@ -128,11 +128,11 @@ const currentPath = Astro.url.pathname;
       </div>
 
       <nav>
-        <a href="/" class={currentPath === "/" ? "active" : ""}>Professional</a>
-  		<a href="/wm" class={currentPath === "/wm" ? "active" : ""}>W&M</a>
-  		<a href="/beyond" class={currentPath === "/beyond" ? "active" : ""}>Beyond</a>
-  		<a href="/connect" class={currentPath === "/connect" ? "active" : ""}>Connect</a>
-      </nav>
+		<a href="/" class={currentPath === "" ? "active" : ""}>Professional</a>
+		<a href="/wm" class={currentPath === "/wm" ? "active" : ""}>W&M</a>
+		<a href="/beyond" class={currentPath === "/beyond" ? "active" : ""}>Beyond</a>
+		<a href="/connect" class={currentPath === "/connect" ? "active" : ""}>Connect</a>
+	</nav>
     </header>
 
     <main>
