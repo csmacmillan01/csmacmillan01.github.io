@@ -1,29 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Professional from "../components/Professional.astro";
+import WM from "../components/WM.astro";
+import Beyond from "../components/Beyond.astro";
+import Connect from "../components/Connect.astro";
 ---
 
 <Layout>
-  <div class="tabs">
-  <div class="tabs" style="min-height: 500px;">
+  <div class="tabs" style="min-height: 500px; position: relative;">
 
     <section id="professional" class="tab-content active">
-      <h1>Professional</h1>
-      <p>Professional content goes here.</p>
+      <Professional />
     </section>
 
     <section id="wm" class="tab-content">
-      <h1>William & Mary</h1>
-      <p>W&M content goes here.</p>
+      <WM />
     </section>
 
     <section id="beyond" class="tab-content">
-      <h1>Beyond the Resume</h1>
-      <p>Passions and interests go here.</p>
+      <Beyond />
     </section>
 
     <section id="connect" class="tab-content">
-      <h1>Connect</h1>
-      <p>Links and socials go here.</p>
+      <Connect />
     </section>
 
   </div>
@@ -32,48 +31,48 @@ import Layout from "../layouts/Layout.astro";
 <script>
   if (typeof window !== "undefined") {
     window.addEventListener("DOMContentLoaded", () => {
-      const tabs = document.querySelectorAll(".tab-content");
       const navLinks = document.querySelectorAll("nav a");
 
       navLinks.forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
 
-    const target = link.getAttribute("data-tab");
-    const current = document.querySelector(".tab-content.active");
-    const next = document.getElementById(target);
+          const target = link.getAttribute("data-tab");
+          const current = document.querySelector(".tab-content.active");
+          const next = document.getElementById(target);
 
-    if (!next || next === current) return;
+          if (!next || next === current) return;
 
-    current.classList.remove("active");
+          // fade out current
+          current.classList.remove("active");
 
-    // small delay so fade-out begins before fade-in
-    setTimeout(() => {
-      next.classList.add("active");
-    }, 50);
-  });
-});
+          // fade in next after small delay
+          setTimeout(() => {
+            next.classList.add("active");
+          }, 400); // matches fade duration
+        });
+      });
     });
   }
 </script>
 
 <style>
   .tabs {
-    position: relative;
-  }
+  position: relative;
+}
 
-  .tab-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-  }
+.tab-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
 
-  .tab-content.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
+.tab-content.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative; /* KEY LINE */
+}
 </style>
