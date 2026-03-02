@@ -2,59 +2,78 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Professional">
+<Layout>
+  <div class="tabs">
+  <div class="tabs" style="min-height: 500px;">
 
-  <h2>Experience</h2>
+    <section id="professional" class="tab-content active">
+      <h1>Professional</h1>
+      <p>Professional content goes here.</p>
+    </section>
 
-  <h3>Booz Allen Hamilton — Data Science Intern</h3>
-  <p><em>McLean, VA | June 2025 – August 2025</em></p>
-  <ul>
-    <li>Engineered scalable MVP analytics web application processing 1M+ row datasets using Python (Dask), React, and Gemini AI.</li>
-    <li>Built backend analytical pipelines generating summary statistics, distributions, and data validation checks to ensure processing integrity.</li>
-    <li>Served as Scrum Master for 4-person agile intern team, leading stakeholder interviews, scope definition, and sprint planning.</li>
-    <li>Delivered final presentation to leadership, earning top evaluation scores; led technical Q&A discussion.</li>
-  </ul>
+    <section id="wm" class="tab-content">
+      <h1>William & Mary</h1>
+      <p>W&M content goes here.</p>
+    </section>
 
-  <h3>Tribe Innovation — Lead Facilitator</h3>
-  <p><em>William & Mary | September 2023 – Present</em></p>
-  <ul>
-    <li>Led cross-functional student teams (4–10 members) delivering data-driven strategy recommendations to university leadership.</li>
-    <li>Analyzed 150+ stakeholder responses to inform institutional strategy initiatives.</li>
-    <li>Developed and presented synthesis reports influencing measurable operational changes.</li>
-    <li>Facilitated design thinking workshops in partnership with Studio for Teaching & Learning Innovation.</li>
-  </ul>
+    <section id="beyond" class="tab-content">
+      <h1>Beyond the Resume</h1>
+      <p>Passions and interests go here.</p>
+    </section>
 
-  <h3>RichBrook Advisors — Mortgage-Backed Securities Analyst Extern</h3>
-  <p><em>New York, NY | January 2025</em></p>
-  <ul>
-    <li>Shadowed senior leadership managing consumer lending assets within MBS and ABS strategies.</li>
-    <li>Explored forecasting tools and analytics frameworks supporting relative value investment decisions.</li>
-  </ul>
+    <section id="connect" class="tab-content">
+      <h1>Connect</h1>
+      <p>Links and socials go here.</p>
+    </section>
 
-  <hr />
-
-  <h2>Relevant Coursework</h2>
-  <p>
-    Applied Machine Learning · Data Visualization & Simulation · Predictive Analytics · 
-    Prescriptive Analytics · Business Statistics · Derivatives & Risk Management · 
-    Corporate Valuation & Credit Analysis · Corporate Financial Strategy · 
-    Investments · Operations Management
-  </p>
-
-  <hr />
-
-  <h2>Technical Skills</h2>
-  <p>
-    Python (pandas, scikit-learn, PuLP) · R · Excel + VBA · Bloomberg Terminal · PowerPoint · Agile Delivery
-  </p>
-
-  <hr />
-
-  <h2>Certifications</h2>
-  <ul>
-    <li>Databricks Fundamentals Academy Accreditation (Issued Feb 2026)</li>
-    <li>Bloomberg Market Concepts (Issued May 2025)</li>
-    <li>Red Cross Lifeguard Management</li>
-  </ul>
-
+  </div>
 </Layout>
+
+<script>
+  if (typeof window !== "undefined") {
+    window.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll(".tab-content");
+      const navLinks = document.querySelectorAll("nav a");
+
+      navLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const target = link.getAttribute("data-tab");
+    const current = document.querySelector(".tab-content.active");
+    const next = document.getElementById(target);
+
+    if (!next || next === current) return;
+
+    current.classList.remove("active");
+
+    // small delay so fade-out begins before fade-in
+    setTimeout(() => {
+      next.classList.add("active");
+    }, 50);
+  });
+});
+    });
+  }
+</script>
+
+<style>
+  .tabs {
+    position: relative;
+  }
+
+  .tab-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .tab-content.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>

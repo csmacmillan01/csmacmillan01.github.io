@@ -127,11 +127,11 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "");
         </div>
       </div>
 
-      <nav>
-		<a href="/" class={currentPath === "" ? "active" : ""}>Professional</a>
-		<a href="/wm" class={currentPath === "/wm" ? "active" : ""}>W&M</a>
-		<a href="/beyond" class={currentPath === "/beyond" ? "active" : ""}>Beyond</a>
-		<a href="/connect" class={currentPath === "/connect" ? "active" : ""}>Connect</a>
+    <nav>
+		<a href="#" data-tab="professional">Professional</a>
+		<a href="#" data-tab="wm">W&M</a>
+		<a href="#" data-tab="beyond">Beyond</a>
+		<a href="#" data-tab="connect">Connect</a>
 	</nav>
     </header>
 
