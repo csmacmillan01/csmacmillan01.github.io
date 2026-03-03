@@ -34,24 +34,30 @@ import Connect from "../components/Connect.astro";
       const navLinks = document.querySelectorAll("nav a");
 
       navLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
 
-          const target = link.getAttribute("data-tab");
-          const current = document.querySelector(".tab-content.active");
-          const next = document.getElementById(target);
+    const target = link.getAttribute("data-tab");
+    const currentTab = document.querySelector(".tab-content.active");
+    const nextTab = document.getElementById(target);
+    const currentNav = document.querySelector("nav a.active");
 
-          if (!next || next === current) return;
+    if (!nextTab || nextTab === currentTab) return;
 
-          // fade out current
-          current.classList.remove("active");
+    // Fade out current
+    currentTab.style.opacity = "0";
+    currentNav?.classList.remove("active");
 
-          // fade in next after small delay
-          setTimeout(() => {
-            next.classList.add("active");
-          }, 400); // matches fade duration
-        });
-      });
+    setTimeout(() => {
+      currentTab.classList.remove("active");
+      nextTab.classList.add("active");
+
+      // ensure fade in starts clean
+      nextTab.style.opacity = "1";
+      link.classList.add("active");
+    }, 400); // match your CSS transition time
+  });
+});
     });
   }
 </script>
@@ -75,4 +81,29 @@ import Connect from "../components/Connect.astro";
   pointer-events: auto;
   position: relative; /* KEY LINE */
 }
+
+/*.tabs {
+  position: relative;
+}
+
+.tab-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.tab-content.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 </style>
+
