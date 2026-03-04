@@ -32,7 +32,80 @@
     The entire MacMillan family enjoys playing tennis against each other amoung other sports. 
   </p>
 
-  <h3>Current Music Rotation</h3>
-  <p>
-    Mt. Joy · PinkPantheress · Daft Punk · NewJeans · Tame Impala · Fleetwood Mac
-  </p>
+  <h3 class="music-title">Current Rotation</h3>
+
+<div class="music-grid">
+
+  <div class="album">
+    <img src="/tameimpala.jpg" alt="Tame Impala Album Cover" />
+    <p class="artist">Tame Impala</p>
+    <p class="song"><em>Dracula</em></p>
+  </div>
+
+  <div class="album">
+    <img src="/pinkpantheress.jpg" alt="PinkPantheress Album Cover" />
+    <p class="artist">PinkPantheress</p>
+    <p class="song"><em>Stateside</em></p>
+  </div>
+
+  <div class="album">
+    <img src="/mtjoy.jpg" alt="Mt. Joy Album Cover" />
+    <p class="artist">Mt. Joy</p>
+    <p class="song"><em>Sheep</em></p>
+  </div>
+
+  <div class="album">
+    <img src="/newjeans.png" alt="NewJeans Album Cover" />
+    <p class="artist">NewJeans</p>
+    <p class="song"><em>Supernatural</em></p>
+  </div>
+
+  <div class="album">
+    <img src="/daftpunk.jpg" alt="Daft Punk Album Cover" />
+    <p class="artist">Daft Punk</p>
+    <p class="song"><em>Instant Crush</em></p>
+  </div>
+
+  <div class="album">
+    <img src="/fleetwoodmac.jpg" alt="Fleetwood Mac Album Cover" />
+    <p class="artist">Fleetwood Mac</p>
+    <p class="song"><em>Silver Springs</em></p>
+  </div>
+
+</div>
+
+<style>
+  .music-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.album {
+  text-align: center;
+}
+
+.album img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.album img:hover {
+  transform: translateY(-6px);
+}
+
+.artist {
+  margin-top: 14px;
+  font-weight: 500;
+}
+
+.song {
+  margin-top: 4px;
+  font-style: italic;
+  opacity: 0.7;
+}
+</style>

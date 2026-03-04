@@ -1,43 +1,87 @@
 
-  <h2>Connect</h2>
+<h2>Let’s Connect</h2>
 
-  <h3>LinkedIn</h3>
-  <p>
-    <a href="https://www.linkedin.com/" target="_blank">
-      View my LinkedIn profile
-    </a>
-  </p>
+<div class="connect-wrapper">
 
-  <h3>Fraternity Website</h3>
-  <p>
-    <a href="#" target="_blank">
-      Visit Phi Beta Chapter Website
-    </a>
-  </p>
+  <a 
+    href="https://www.linkedin.com/in/cole-macmillan" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="linkedin-icon"
+  >
+    <img src="/LI2.png" alt="LinkedIn" />
+  </a>
 
-  <hr />
-
-  <h3>Featured Posts</h3>
-
-  <div>
-    <h4>Design Thinking & Institutional Strategy</h4>
+  <div class="connect-content">
     <p>
-      Reflection on leading student teams through data-driven strategy 
-      recommendations at William & Mary.
+      I value professional relationships and thoughtful career conversations. 
+      As a young professional building experience in data, strategy, and design-oriented 
+      problem solving, I’m always open to connecting.
+    </p>
+
+    <p>
+      If you're a student navigating internships, recruiting, consulting, analytics, 
+      or simply exploring your next step, I’m happy to offer perspective, share lessons 
+      learned, or help however I can.
+    </p>
+
+    <p>
+      I’m also continuing to grow my network within the DMV area and beyond. 
+      Whether it’s mentorship, collaboration, or staying in touch as our paths evolve, 
+      I appreciate long-term professional connections and mentorship.
+    </p>
+
+    <p class="cta">
+      Feel free to connect with me on LinkedIn.
     </p>
   </div>
 
-  <div>
-    <h4>Data Science & Scalable Systems</h4>
-    <p>
-      Lessons learned from building scalable analytics applications 
-      during my internship experience.
-    </p>
-  </div>
+</div>
 
-  <div>
-    <h4>Leadership & Team Dynamics</h4>
-    <p>
-      Insights from facilitating workshops and managing cross-functional teams.
-    </p>
-  </div>
+<style>
+  .connect-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.linkedin-icon {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  background: #f3f3f3;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.linkedin-icon img {
+  width: 72px;
+  height: 72px;
+}
+
+.linkedin-icon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.connect-content {
+  flex: 1;
+  max-width: 700px;
+}
+
+.connect-content p {
+  margin-bottom: 16px;
+  line-height: 1.65;
+}
+
+.cta {
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+
+</style>
