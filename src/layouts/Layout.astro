@@ -80,10 +80,12 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "");
 
       main {
         max-width: 1000px;
+        width: 90%;
         margin: 2rem auto;
         padding: 2rem;
         background-color: var(--bg-card);
         border-radius: 10px;
+        box-sizing: border-box;
       }
 
       footer {
@@ -113,34 +115,48 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "");
 		font-weight: 600;
 		}
 
+    .page-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
     </style>
   </head>
 
   <body>
-    <header>
-      <div class="header-content">
-        <img src="/headshot.jpg" alt="Headshot of Cole MacMillan" class="headshot" />
-        <div class="title-block">
-          <h1>Cole S. MacMillan</h1>
-          <p>Finance and Data Science Student at William & Mary</p>
-          <p>3.81 GPA | BBA Finance | Data Science Minor | Business Analytics Concentration</p>
+    <div class="page-container">
+      <header>
+        <div class="header-content">
+          <img src="/headshot.jpg" alt="Headshot of Cole MacMillan" class="headshot" />
+          <div class="title-block">
+            <h1>Cole S. MacMillan</h1>
+            <p>Finance and Data Science Student at William & Mary</p>
+            <p>3.81 GPA | BBA Finance | Data Science Minor | Business Analytics Concentration</p>
+          </div>
         </div>
-      </div>
 
-    <nav>
-		<a href="#" data-tab="professional" class="active">Professional</a>
-		<a href="#" data-tab="wm">W&M</a>
-		<a href="#" data-tab="beyond">Beyond</a>
-		<a href="#" data-tab="connect">Connect</a>
-		</nav>
-    </header>
+      <nav>
+      <a href="#" data-tab="professional" class="active">Professional</a>
+      <a href="#" data-tab="wm">W&M</a>
+      <a href="#" data-tab="beyond">Beyond</a>
+      <a href="#" data-tab="connect">Connect</a>
+      </nav>
+      </header>
 
-    <main>
-      <slot />
-    </main>
-
+      <main>
+        <slot />
+      </main>
+    </div>
     <footer>
-      Site last updated Spring 2026
+      Connect with me on LinkedIn
     </footer>
+
+    
   </body>
+
+
+
+  
 </html>
+
